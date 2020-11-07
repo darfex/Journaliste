@@ -1,0 +1,30 @@
+.content {
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #d4d4d4;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+    font-family: Ubuntu;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+label {
+    color: #222222;
+}
+
+.btn {
+    width: 100%;
+    background: #343a40;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #212529;
+    color: #fff;
+}

@@ -1,0 +1,163 @@
+body {
+    font-family: Open Sans;
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+.bg-dark .list-group .list-group-item, .bg-dark .sidebar-heading {
+    color: rgb(207, 203, 203);
+}
+
+#posts li, #users li {
+    list-style-type: '';
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#posts .nav-item a,  #users .nav-item a {
+    color: rgb(207, 203, 203);
+}
+
+#posts .nav-item a:hover, #users .nav-item a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+h1, h2 {
+    margin-top: 25px;
+}
+
+.panel {
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.panel-1 {
+    background: rgb(240, 183, 39);
+}
+
+.panel-2 {
+    background: green;
+}
+
+.panel-3 {
+    background: #a94442;
+}
+
+.panel-4 {
+    background: rgb(66, 0, 128);
+}
+
+.panel-5 {
+    background: rgb(11, 119, 221);
+}
+
+.panel-6 {
+    background: rgb(230, 111, 15);
+}
+
+
+.close {
+    font-weight: 600;
+    font-size: large;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.fa-5x, .fa-angle-left {
+    color: #fff;
+}
+
+.text {
+    display: block;
+    float: right;
+    color: #fff;
+    margin: 0;
+}
+
+.name {
+    margin-bottom: 10px;
+}
+
+.stat {
+    font-size: 50px;
+}
+
+/* **********Profile********** */
+.form-control {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 600;
+}
+
+/* *********Add-user********* */
+
+#role {
+    margin-bottom: 15px;
+    width: 10%;
+}
+
+small {
+    color: red;
+}
+
+/* *********Add-Post********** */
+
+.btn {
+    margin-top: 10px;
+    color: #fff;
+}
+
+input[type='file'] {
+    margin-bottom: 10px;
+}
+
