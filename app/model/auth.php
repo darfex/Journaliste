@@ -5,11 +5,15 @@ use Core\App;
 use \PDO;
 use \Exception;
 
-class Authentication
+session_start();
+class User
 {
     protected $pdo;
     protected $username;
     protected $password;
+    protected $email;
+    protected $firstname;
+    protected $lastname;
     public $error;
 
     public function __Construct($pdo)
@@ -32,7 +36,7 @@ class Authentication
                 $_SESSION['email']     = $details['email'];
                 $_SESSION['role']      = $details['role'];
 
-                redirect ('dashboard');
+                redirect('dashboard');
             }
             $message = "Incorrect Password";
             view('login', compact('message'));
@@ -80,7 +84,7 @@ class Authentication
                     }
                     else{
                         $message = "Invalid email format";
-                    view('register', compact('message'));
+                        view('register', compact('message'));
                     }
                 }
                 else {
@@ -115,7 +119,7 @@ class Authentication
 
     private function isUsernameExists($username)
     {
-        $statement = $this->pdo->prepare("SELECT username FROM users WHERE usescrername = :username");
+        $statement = $this->pdo->prepare("SELECT username FROM users WHERE username = :username");
         $statement->bindParam(':username', $username);
         $statement->execute();
 
@@ -167,7 +171,7 @@ class Authentication
     }
 }
 
-$auth = new Authentication(
+$auth = new User(
     App::get('database')
 );
 

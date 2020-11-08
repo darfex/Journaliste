@@ -1,0 +1,13 @@
+.form-control {
+    margin-bottom: 15px;
+}
+
+input[type='file'] {
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+#gender {
+    margin-bottom: 0;
+    font-size: 15px;
+}

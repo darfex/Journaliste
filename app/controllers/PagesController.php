@@ -9,6 +9,11 @@ class PagesController
         view('index');
     }
 
+    public function dashboard()
+    {
+        view('dashboard');
+    }
+
     public function profile()
     {
         view('profile');

@@ -1,4 +1,7 @@
-<?php require 'partials/adminheader.php'; ?>
+<?php 
+session_start();
+require 'partials/adminheader.php'; 
+?>
 
     <div class="container-fluid">
         <h2>Add new User</h2>
