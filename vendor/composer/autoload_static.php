@@ -10,6 +10,7 @@ class ComposerStaticInit8ebc55b994e49c065638b7a35f83c611
         'App\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/controllers/BlogController.php',
         'App\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/controllers/PagesController.php',
         'App\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/controllers/UsersController.php',
+        'App\\Model\\HOME' => __DIR__ . '/../..' . '/app/model/home.php',
         'App\\Model\\Post' => __DIR__ . '/../..' . '/app/model/post.php',
         'App\\Model\\User' => __DIR__ . '/../..' . '/app/model/auth.php',
         'ComposerAutoloaderInit8ebc55b994e49c065638b7a35f83c611' => __DIR__ . '/..' . '/composer/autoload_real.php',

@@ -13,6 +13,7 @@ class Post
     protected $title;
     protected $content;
     protected $author;
+    protected $count = 0;
     
     public function __construct($pdo)
     {
@@ -21,22 +22,40 @@ class Post
 
     public function addPost($title, $image, $content, $tag, $status, $author)
     {
-        $param = [
-            'title'   => $this->sanitize_string($title),
-            'image'   => $image,
-            'content' => $this->sanitize_string($content),
-            'tag'     => $this->sanitize_string($tag),
-            'status'  => $status,
-            'author'  => $author,
-        ];
+        if ($this->num_words($content))
+        {
+            $param = [
+                'title'   => $this->sanitize_string($title),
+                'image'   => $image,
+                'content' => $this->sanitize_string($content),
+                'tag'     => $this->sanitize_string($tag),
+                'stat'  => $status,
+                'author'  => $author,
+            ];
 
-        App::get('query')->insert('posts', $param);
-        redirect('dashboard');
+            App::get('query')->insert('posts', $param);
+            redirect('dashboard');
+        }
+        else{
+            $message = "Content must not be less than 200 words";
+            view('new-post', compact('message'));
+        }
     }
 
     public function editPost()
     {
-        
+
+    }
+
+    public function num_words($content) // Number of words should be >= 200
+    {
+        $content = explode(' ', $content);
+
+        foreach($content as $word)
+        {
+            $this->count += 1;
+        }
+        return $this->count >= 200 ? true : false;
     }
 
     private function sanitize_string($arg)

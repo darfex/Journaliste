@@ -6,7 +6,7 @@ class PagesController
 {
     public function home()
     {
-        view('index');
+        require 'app/model/home.php';
     }
 
     public function dashboard()
