@@ -6,6 +6,11 @@ class BlogController
 {
     public function newPost()
     {
-        require 'app/model/post.php';
+        require 'app/models/post.php';
+    }
+
+    public function fetchPost()
+    {
+        require 'app/models/post.php';
     }
 }

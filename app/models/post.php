@@ -29,7 +29,7 @@ class Post
                 'image'   => $image,
                 'content' => $this->sanitize_string($content),
                 'tag'     => $this->sanitize_string($tag),
-                'stat'  => $status,
+                'stat'    => $status,
                 'author'  => $author,
             ];
 
@@ -45,6 +45,38 @@ class Post
     public function editPost()
     {
 
+    }
+
+    public function fetchPost($title)
+    {
+        try{
+            $statement = $this->pdo->prepare("SELECT * FROM posts WHERE title = :title");
+            $statement->bindParam(':title', $title);
+            $statement->execute();
+
+            $post = $statement->fetch(PDO::FETCH_OBJ);
+            view('post', compact('post'));
+        }
+        catch(Exception $e)
+        {
+            die($e->getMessage());
+        }
+    }
+
+    public function fetchAllPosts() // To be displayed on the homepage
+    {
+        try
+        {
+            $statement = $this->pdo->prepare("SELECT * FROM posts WHERE stat = 'published' ORDER BY  updatedOn DESC");
+            $statement->execute();
+            $data =  $statement->fetchAll(PDO::FETCH_OBJ);
+
+            view('index', compact('data'));
+        }
+        catch(Exception $e)
+        {
+            die($e->getMessage());
+        }
     }
 
     public function num_words($content) // Number of words should be >= 200
@@ -70,12 +102,21 @@ $postAction = new Post(
 
 if (isset($_POST['title']) && isset($_POST['content']) && $_POST['status'])
 {
-    $title = $_POST['title'];
+    $title   = $_POST['title'];
     $content = $_POST['content'];
-    $status = $_POST['status'];
-    $tag = $_POST['tag'];
-    $image = $_POST['image'];
-    $author = $_SESSION['username'];
+    $status  = $_POST['status'];
+    $tag     = $_POST['tag'];
+    $image   = $_POST['image'];
+    $author  = $_SESSION['username'];
 
     $postAction->addPost($title, $image, $content, $tag, $status, $author);
+}
+elseif(isset($_GET['post']))
+{
+    $title = $_GET['post'];
+    $postAction->fetchPost($title);
+}
+else
+{
+    $postAction->fetchAllPosts();
 }

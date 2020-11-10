@@ -27,3 +27,10 @@ function dd($data)
 {
     die(var_dump($data));
 }
+
+function dump($data)
+{
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+}

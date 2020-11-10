@@ -7,6 +7,6 @@ class UsersController
 {
     public function auth()
     {
-        require 'app/model/auth.php';
+        require 'app/models/auth.php';
     }
 }

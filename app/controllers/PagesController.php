@@ -6,7 +6,7 @@ class PagesController
 {
     public function home()
     {
-        require 'app/model/home.php';
+        require 'app/models/post.php';
     }
 
     public function dashboard()
