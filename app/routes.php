@@ -7,6 +7,7 @@ $router->get('addpost', 'PagesController@newpost');
 $router->get('login', 'PagesController@login');
 $router->get('register', 'PagesController@register');
 $router->get('post', 'BlogController@fetchPost');
+$router->get('posts', 'BlogController@admin');
 $router->post('auth', 'UsersController@auth');
 $router->post('add-user', 'UsersController@auth');
 $router->post('add-post', 'BlogController@newPost');

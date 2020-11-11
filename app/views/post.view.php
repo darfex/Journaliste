@@ -1,5 +1,5 @@
 <?php require 'partials/header.php'; ?>
-<link rel="stylesheet" href="../public/css/index.css">
+<link rel="stylesheet" href="../public/css/style.css">
 
 <div class="content">
     <div class="container">
@@ -8,9 +8,10 @@
                     <h6>by <?= ucfirst($post->author); ?></h6>
                     <small class="date">Published <?= $post->postDate; ?></small>
                     <br>
-                    <!-- <hr> -->
-                        <img src="../public/images/<?= $post->image; ?>" alt="Image" class="col-lg-4">
-                        <p class="col-lg-12"><?= $post->content; ?></p>
+                        <div class="row">
+                            <img src="../public/images/<?= $post->image; ?>" alt="Image" class="col-lg-5">
+                            <div class="col-lg-6" id="content"><?= $post->content; ?></div>
+                        </div>
                 </div>
                 <hr class="division">
 

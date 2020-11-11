@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 use Core\App;
 use \PDO;
 use \Exception;
@@ -27,7 +27,7 @@ class Post
             $param = [
                 'title'   => $this->sanitize_string($title),
                 'image'   => $image,
-                'content' => $this->sanitize_string($content),
+                'content' => $content,
                 'tag'     => $this->sanitize_string($tag),
                 'stat'    => $status,
                 'author'  => $author,
@@ -47,7 +47,7 @@ class Post
 
     }
 
-    public function fetchPost($title)
+    public function fetchPost($title) // Fetch specific post
     {
         try{
             $statement = $this->pdo->prepare("SELECT * FROM posts WHERE title = :title");

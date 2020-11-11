@@ -35,7 +35,6 @@ require 'partials/adminheader.php';
 
         <br>
         <button class="btn btn-success" type="submit">Publish</button>
-        
     </form>
     
 </div>

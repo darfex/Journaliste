@@ -13,4 +13,9 @@ class BlogController
     {
         require 'app/models/post.php';
     }
+
+    public function admin()
+    {
+        require 'app/models/adminPost.php';
+    }
 }
