@@ -21,3 +21,8 @@ h6 {
 button {
     margin-top: 15px;
 }
+
+h1 {
+    color: red;
+    text-align: center;
+}

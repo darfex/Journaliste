@@ -1,0 +1,55 @@
+.btn {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Lato;
+}
+
+td {
+    font-size: 14px;
+    border: 1px solid #343a40;
+    padding: 10px;
+}
+
+
+
+th {
+    background: #343a40;
+    text-align: center;
+    padding: 15px;
+    color: #fff;
+}
+
+.btns {
+    border: none;
+    background: #fff;
+    text-align: center;
+}
+
+img {
+    width: 70px;
+}
+
+.delete {
+    width: 5%;
+    text-align: center;
+}
+
+.fa-trash {
+    color: red;
+}
+
+.fa-trash:hover {
+    color: rgb(170, 5, 38);
+}
+
+.fa-edit {
+    color: #265a88;
+}
+
+.date {
+    width: 10%;
+}

@@ -54,8 +54,7 @@ class Post
             $statement->bindParam(':title', $title);
             $statement->execute();
 
-            $post = $statement->fetch(PDO::FETCH_OBJ);
-            view('post', compact('post'));
+            return $statement->fetch(PDO::FETCH_OBJ);
         }
         catch(Exception $e)
         {
@@ -69,9 +68,7 @@ class Post
         {
             $statement = $this->pdo->prepare("SELECT * FROM posts WHERE stat = 'published' ORDER BY  updatedOn DESC");
             $statement->execute();
-            $data =  $statement->fetchAll(PDO::FETCH_OBJ);
-
-            view('index', compact('data'));
+            return $statement->fetchAll(PDO::FETCH_OBJ);
         }
         catch(Exception $e)
         {
@@ -110,13 +107,4 @@ if (isset($_POST['title']) && isset($_POST['content']) && $_POST['status'])
     $author  = $_SESSION['username'];
 
     $postAction->addPost($title, $image, $content, $tag, $status, $author);
-}
-elseif(isset($_GET['post']))
-{
-    $title = $_GET['post'];
-    $postAction->fetchPost($title);
-}
-else
-{
-    $postAction->fetchAllPosts();
 }

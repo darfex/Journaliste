@@ -27,14 +27,13 @@ require 'partials/adminheader.php';
         <label for="content">Post Content</label>
         <textarea name="content"  id="" rows="15" required></textarea>
 
-        <label for="status" id="status">Save as draft</label>
-        <input type="radio" name="status" value="draft" required>
-        <br>
-        <label for="status" id="status">Publish</label>
-        <input type="radio" name="status" value="published" required>
+        <select name="role" id="" clas="form-control">
+            <option value="published">Publish</option>
+            <option value="draft">Save as Draft</option>
+        </select>
 
         <br>
-        <button class="btn btn-success" type="submit">Publish</button>
+        <button class="btn btn-success" type="submit">Done</button>
     </form>
     
 </div>

@@ -14,42 +14,42 @@ require 'partials/adminheader.php';
     <div class="row">
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-1">
             <i class="fas fa-file fa-5x"></i>
-            <p class="text stat">5</p>
+            <p class="text stat">3</p>
             <br>
             <strong class="text name">Posts</strong>
         </div>
         
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-2">
             <i class="fas fa-check fa-5x"></i>
-            <p class="text stat">4</p>
+            <p class="text stat">3</p>
             <br>
             <strong class="text name">Published</strong>
         </div>
 
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-3">
             <i class="fas fa-tasks fa-5x"></i>
-            <p class="text stat">1</p>
+            <p class="text stat">0</p>
             <br>
             <strong class="text name">Drafts</strong>
         </div>
 
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-4">
             <i class="fas fa-users fa-5x"></i>
-            <p class="text stat">15</p>
+            <p class="text stat">1</p>
             <br>
             <strong class="text name">Users</strong>
         </div>
 
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-5">
             <i class="fa fa-user-lock fa-5x"></i>
-            <p class="text stat">4</p>
+            <p class="text stat">1</p>
             <br>
             <strong class="text name">Admin</strong>
         </div>
 
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-6">
             <i class="fas fa-user fa-5x"></i>
-            <p class="text stat">11</p>
+            <p class="text stat">0</p>
             <br>
             <strong class="text name">User</strong>
         </div>

@@ -17,6 +17,7 @@ class ComposerStaticInit8ebc55b994e49c065638b7a35f83c611
         'Composer\\Autoload\\ComposerStaticInit8ebc55b994e49c065638b7a35f83c611' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Connection' => __DIR__ . '/../..' . '/core/database/connection.php',
         'Core\\App' => __DIR__ . '/../..' . '/core/App.php',
+        'Core\\Models\\Fetch' => __DIR__ . '/../..' . '/app/models/adminPost.php',
         'Core\\Request' => __DIR__ . '/../..' . '/core/Request.php',
         'Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
         'QueryBuilder' => __DIR__ . '/../..' . '/core/database/queryBuilder.php',

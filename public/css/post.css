@@ -1,5 +1,13 @@
+hr {
+    margin-top: 0;
+}
+
 .form-control {
     margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
 }
 
 input[type='file'] {
@@ -10,4 +18,13 @@ input[type='file'] {
 #gender {
     margin-bottom: 0;
     font-size: 15px;
+}
+
+img {
+    width: 100px;
+}
+
+select {
+    font-size: 14px;
+    margin-top: 7px;
 }

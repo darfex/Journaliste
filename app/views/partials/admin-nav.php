@@ -11,7 +11,7 @@
                         <a href="posts">View Posts</a>
                     </li>
                     <li class="nav-item">
-                        <a href="addpost">Add New Post</a>
+                        <a href="addPost">Add New Post</a>
                     </li>
                 </ul>
             <a href="#" class="list-group-item list-group-item-action bg-dark dropdown-toggle" data-toggle="collapse" data-target="#users"><i class="fas fa-users"></i> Users</a>
@@ -20,7 +20,7 @@
                         <a href="users">View Users</a>
                     </li>
                     <li class="nav-item">
-                        <a href="adduser">Add New User</a>
+                        <a href="addUser">Add New User</a>
                     </li>
                 </ul>
             <a href="profile" class="list-group-item list-group-item-action bg-dark"><i class="fas fa-user"></i>&nbsp User Account</a>

@@ -4,18 +4,29 @@ namespace App\Controllers;
 
 class BlogController
 {
-    public function newPost()
+    public function addPost()
     {
         require 'app/models/post.php';
     }
 
-    public function fetchPost()
+    public function changePostStatus()
     {
-        require 'app/models/post.php';
+        require 'app/models/admin.php';
     }
 
-    public function admin()
+    public function deletePost()
     {
-        require 'app/models/adminPost.php';
+        require 'app/models/admin.php';
+        $id = $_GET['id'];
+        $post->delete($id);
+        redirect('posts');
+    }
+
+    public function editPost()
+    {
+        require 'app/models/admin.php';
+        $title = $_GET['post'];
+        $post = $post->edit($title);
+        view('updatePost', compact('post'));
     }
 }
