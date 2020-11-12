@@ -9,14 +9,14 @@ require 'partials/adminheader.php';
     <h2>Update Post</h2>
     <hr>
 
-    <form action="update-post" method="POST">
+    <form action="update-post?id=<?= $post->id; ?>" method="POST">
         <label for="title">Post Title</label>
         <input type="text" class="form-control" name="title" value="<?= $post->title; ?>" required>
 
         <label for="tag">Post Tags</label>
         <input type="text" class="form-control" name="tag" value="<?= $post->tag; ?>">
 
-        <select name="role" id="" clas="form-control">
+        <select name="status" id="" clas="form-control">
                 <option value="published">Publish</option>
                 <option value="draft">Save as Draft</option>
         </select>
@@ -24,7 +24,7 @@ require 'partials/adminheader.php';
 
         <label>Image</label>
         <br>
-        <img src="../public/images/<?= $post->image; ?>" alt="Image">
+        <img src="../public/images/<?= $post->img; ?>" alt="Image">
 
         <br>
         <input type="file" name="image">

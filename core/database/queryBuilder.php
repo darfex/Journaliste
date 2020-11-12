@@ -35,4 +35,11 @@ class QueryBuilder
             die($e->getMessage());
         }
     }
+
+    public function update($table, $parameters)
+    {
+        $sql = sprintf(
+            "UPDATE %s SET"
+        );
+    }
 }

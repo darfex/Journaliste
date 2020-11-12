@@ -26,7 +26,7 @@ class Post
         {
             $param = [
                 'title'   => $this->sanitize_string($title),
-                'image'   => $image,
+                'img'   => $image,
                 'content' => $content,
                 'tag'     => $this->sanitize_string($tag),
                 'stat'    => $status,
@@ -42,9 +42,39 @@ class Post
         }
     }
 
-    public function editPost()
+    public function updatePost($title, $content, $image, $tag, $status, $id)
     {
+        if ($this->num_words($content))
+        {
+            $title = $this->sanitize_string($title);
+            $tag = $this->sanitize_string($tag);
 
+            if(!empty($image))
+            {
+                $statement = $this->pdo->prepare("UPDATE posts SET title = :title, content = :content, tag = :tag, stat = :stat, img = :img WHERE id = :id");
+                $statement->bindParam(':title', $title);
+                $statement->bindParam(':content', $content);
+                $statement->bindParam(':tag', $tag);
+                $statement->bindParam(':img', $image);
+                $statement->bindParam(':stat', $status);
+                $statement->bindParam(':id', $id);
+                $statement->execute();
+            }
+            else{
+                $statement = $this->pdo->prepare("UPDATE posts SET title = :title, content = :content, tag = :tag, stat = :stat WHERE id = :id");
+                $statement->bindParam(':title', $title);
+                $statement->bindParam(':content', $content);
+                $statement->bindParam(':tag', $tag);
+                $statement->bindParam(':stat', $status);
+                $statement->bindParam(':id', $id);
+                $statement->execute();
+            }
+            redirect('posts');
+        }
+        else{
+            $message = "Content must not be less than 200 words";
+            view('upDatePost', compact('message'));
+        }
     }
 
     public function fetchPost($title) // Fetch specific post
@@ -96,15 +126,3 @@ class Post
 $postAction = new Post(
     App::get('database')
 );
-
-if (isset($_POST['title']) && isset($_POST['content']) && $_POST['status'])
-{
-    $title   = $_POST['title'];
-    $content = $_POST['content'];
-    $status  = $_POST['status'];
-    $tag     = $_POST['tag'];
-    $image   = $_POST['image'];
-    $author  = $_SESSION['username'];
-
-    $postAction->addPost($title, $image, $content, $tag, $status, $author);
-}

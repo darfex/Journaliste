@@ -38,26 +38,11 @@ class Fetch
         $statement->execute();
     }
 
-    public function delete($id)
+    public function delete($table, $id)
     {
-        $statement = $this->pdo->prepare("DELETE FROM posts WHERE id = :id");
+        $statement = $this->pdo->prepare("DELETE FROM {$table} WHERE id = :id");
         $statement->bindParam(':id', $id);
         $statement->execute();
-    }
-
-    public function edit($title)
-    {
-        try
-        {
-            $statement = $this->pdo->prepare("SELECT * FROM posts Where title = :title");
-            $statement->bindParam(':title', $title);
-            $statement->execute();
-            return $statement->fetch(PDO::FETCH_OBJ);
-        }
-        catch(Exception $e)
-        {
-            die($e->getMessage());
-        }
     }
 }
 

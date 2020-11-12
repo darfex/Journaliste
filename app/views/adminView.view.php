@@ -7,7 +7,7 @@
         <span style="font-size:14px;">Published <?= $post->postDate; ?></pan>
         <br>
         <hr>
-        <img src="../public/images/<?= $post->image; ?>" alt="Image" class="col-lg-4">
+        <img src="../public/images/<?= $post->img; ?>" alt="Image" class="col-lg-4">
         <p><?= $post->content; ?></p>
     <?php endforeach; ?>
 </div>

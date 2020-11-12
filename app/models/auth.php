@@ -21,13 +21,13 @@ class User
         $this->pdo = $pdo;
     }
 
-    public function Login ($username, $password)
+    public function Login($username, $password)
     {
         if ($this->isUsernameExists($username))
         {
             $details = $this->fetchData($username);
 
-            if (password_verify($password, $details['password']))
+            if (password_verify($password, $details['pass']))
             {
                 $_SESSION['id']        = $details['id'];
                 $_SESSION['username']  = $details['username'];
@@ -47,7 +47,7 @@ class User
         }
     }
 
-    public function AddAccount ($username, $firstname, $lastname, $email, $password, $cpassword)
+    public function AddAccount($username, $firstname, $lastname, $email, $password, $cpassword)
     {
         if ($this->isUsernameValid($username))
         {
@@ -66,7 +66,7 @@ class User
                                     'firstname' => $this->sanitize_string($firstname),
                                     'lastname'  => $this->sanitize_string($lastname),
                                     'email'     => filter_var($email, FILTER_SANITIZE_EMAIL),
-                                    'password'  => password_hash($password, PASSWORD_DEFAULT)
+                                    'pass'  => password_hash($password, PASSWORD_DEFAULT)
                                 ];
 
                                 App::get('query')->insert('users', $param);
@@ -74,6 +74,84 @@ class User
                             }
                             else{
                                 $message = "Passwords must match and should not be less than six(6) characters";
+                                view('register', compact('message'));
+                            }
+                        }
+                        else{
+                            $message = "Email already exists";
+                            view('register', compact('message'));
+                        }
+                    }
+                    else{
+                        $message = "Invalid email format";
+                        view('register', compact('message'));
+                    }
+                }
+                else {
+                    $message = "Invalid name format";
+                    view('register', compact('message'));
+                }
+            }
+            else{
+                $message = "Username already exists";
+                view('register', compact('message'));
+            }
+        }
+        else{
+            $message = "Invalid Username";
+            view('register', compact('message'));
+        }
+    }
+
+    public function UpdateUser($username, $firstname, $lastname, $emal, $currentPassword, $password, $cpassword)
+    {
+        $details = $this->fetchData($username);
+
+        if ($this->isUsernameValid($username))
+        {
+            if ($this->isUsernameExists($username) === false)
+            {
+                if ($this->isnameValid($firstname) && $this->isnameValid($lastname))
+                {
+                    if ($this->isEmailValid($email))
+                    {
+                        if ($this->isEmailExists($email) === false)
+                        {
+                            if (password_verify($currentPassword, $details['pass']))
+                            {
+                                if ($this->isPasswordValid($password, $cpassword))
+                                {
+                                    $username = $this->sanitize_string($username);
+                                    $firstname = $this->sanitize_string($firstname);
+                                    $lastname  = $this->sanitize_string($lastname);
+                                    $email    = filter_var($email, FILTER_SANITIZE_EMAIL);
+                                    $password  = password_hash($password, PASSWORD_DEFAULT);
+
+                                    try{
+                                        $statement = $this->pdo->prepare(
+                                            "UPDATE users SET username = :username, firstname = :firstname, lastname = :lastname, email = :email, pass = :pass"
+                                        );
+                                        $statement->bindParam(':username', $username);
+                                        $statement->bindParam(':firstname', $firstname);
+                                        $statement->bindParam(':lastname', $lastname);
+                                        $statement->bindParam(':email', $email);
+                                        $statement->bindParam(':pass', $password);
+                                        $statement->execute();
+
+                                        echo "<script>alert('Account has been updated successfully');</script>";
+                                        redirect('dasboard');
+                                    }
+                                    catch(Exception $e)
+                                    {
+                                        die($e->getMessage());
+                                    }
+                                }
+                                else{
+                                    $message = "Passwords must match and should not be less than six(6) characters";
+                                }
+                            }
+                            else{
+                                $message = "Incorrect Password";
                                 view('register', compact('message'));
                             }
                         }
@@ -174,23 +252,3 @@ class User
 $auth = new User(
     App::get('database')
 );
-
-if (isset($_POST['username']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['email']) && isset($_POST['password']))
-{
-    $username = $_POST['username'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $cpassword = $_POST['cpassword'];
-
-    $auth->AddAccount($username, $firstname, $lastname, $email, $password, $cpassword);
-}
-
-elseif (isset($_POST['username']) && isset($_POST['password']))
-{
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $auth->Login($username, $password);
-}

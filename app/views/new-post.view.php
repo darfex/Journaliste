@@ -27,7 +27,7 @@ require 'partials/adminheader.php';
         <label for="content">Post Content</label>
         <textarea name="content"  id="" rows="15" required></textarea>
 
-        <select name="role" id="" clas="form-control">
+        <select name="status" id="" clas="form-control">
             <option value="published">Publish</option>
             <option value="draft">Save as Draft</option>
         </select>

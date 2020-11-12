@@ -13,7 +13,7 @@
                         <small class="date">Published <?= $post->postDate; ?></small>
                         <!-- <hr> -->
                         <div class="row">
-                            <img src="../public/images/<?= $post->image; ?>" alt="Image" class="col-lg-4">
+                            <img src="../public/images/<?= $post->img; ?>" alt="Image" class="col-lg-4">
                             <div class="col-lg-8"><?= substr($post->content, 0, 500) . '...'; ?>
                                 <br>
 

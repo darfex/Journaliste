@@ -33,7 +33,7 @@
                         <td><?= ucfirst($post->title); ?></td>
                         <td><?= $post->tag; ?></td>
                         <td><?= ucfirst($post->stat); ?></td>
-                        <td class="img"><img src="../public/images/<?= $post->image; ?>" alt="Image"></td>
+                        <td class="img"><img src="../public/images/<?= $post->img; ?>" alt="Image"></td>
                         <td class="date"><?= $post->postDate; ?></td>
                         <td>
                             <a href="view?post=<?= $post->title; ?>">View</a>
