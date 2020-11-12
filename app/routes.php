@@ -12,6 +12,7 @@ $router->get('view', 'PagesController@viewPost');
 $router->get('status', 'BlogController@changePostStatus');
 $router->get('delete', 'BlogController@deletePost');
 $router->get('edit', 'BlogController@editPost');
+$router->get('logout', 'UsersController@logout');
 $router->post('update-post', 'BlogController@updatePost');
 $router->post('auth', 'UsersController@login');
 $router->post('add-user', 'UsersController@add_User');

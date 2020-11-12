@@ -32,7 +32,6 @@ class UsersController
     public function update_User()
     {
         require 'app/models/auth.php';
-        dd($_POST);
 
         $username = $_POST['username'];
         $firstname = $_POST['firstname'];
@@ -42,6 +41,14 @@ class UsersController
         $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
 
-        $auth->UpdateUser($username, $firstname, $lastname, $emal, $currentPassword, $password, $cpassword);
+        $auth->UpdateUser($username, $firstname, $lastname, $email, $currentPassword, $password, $cpassword);
+    }
+
+    public function logout()
+    {
+        session_start();
+        session_unset();
+        session_destroy();
+        redirect('login');
     }
 }

@@ -3,6 +3,7 @@
 
     <div class="content">
         <?php if (isset($message)) : ?>
+            <?= $error; ?>
             <small style="color:red"><?= $message; ?></small>
         <?php endif; ?>
         <form action="auth" method="POST">

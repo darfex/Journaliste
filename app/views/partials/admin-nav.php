@@ -42,10 +42,10 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    <?= ucfirst($_SESSION['username']); ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Log out</a>
+                    <a class="dropdown-item" href="logout">Log out</a>
                     <!-- <div class="dropdown-divider"></div> -->
                 </div>
             </li>

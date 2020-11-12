@@ -38,12 +38,14 @@ class User
 
                 redirect('dashboard');
             }
+            $error = "<script>alert('Incorrect Password');</script>";
             $message = "Incorrect Password";
-            view('login', compact('message'));
+            view('login', compact('message', 'error'));
         }
         else{
+            $error = "<script>alert('No account');</script>";
             $message = 'No Account';
-            view('login', compact('message'));
+            view('login', compact('message', 'error'));
         }
     }
 
@@ -51,13 +53,13 @@ class User
     {
         if ($this->isUsernameValid($username))
         {
-            if ($this->isUsernameExists($username) === false)
+            if (!$this->isUsernameExists($username))
             {
                 if ($this->isnameValid($firstname) && $this->isnameValid($lastname))
                 {
                     if ($this->isEmailValid($email))
                     {
-                        if ($this->isEmailExists($email) === false)
+                        if (!$this->isEmailExists($email))
                         {
                             if ($this->isPasswordValid($password, $cpassword))
                             {
@@ -103,19 +105,19 @@ class User
         }
     }
 
-    public function UpdateUser($username, $firstname, $lastname, $emal, $currentPassword, $password, $cpassword)
+    public function UpdateUser($username, $firstname, $lastname, $email, $currentPassword, $password, $cpassword)
     {
-        $details = $this->fetchData($username);
+        $details = $this->fetchData($_SESSION['username']);
 
         if ($this->isUsernameValid($username))
         {
-            if ($this->isUsernameExists($username) === false)
+            if (!$this->isUsernameExists($username))
             {
                 if ($this->isnameValid($firstname) && $this->isnameValid($lastname))
                 {
                     if ($this->isEmailValid($email))
                     {
-                        if ($this->isEmailExists($email) === false)
+                        if (!$this->isEmailExists($email))
                         {
                             if (password_verify($currentPassword, $details['pass']))
                             {
@@ -148,36 +150,37 @@ class User
                                 }
                                 else{
                                     $message = "Passwords must match and should not be less than six(6) characters";
+                                    view('profile', compact('message'));
                                 }
                             }
                             else{
                                 $message = "Incorrect Password";
-                                view('register', compact('message'));
+                                view('profile', compact('message'));
                             }
                         }
                         else{
                             $message = "Email already exists";
-                            view('register', compact('message'));
+                            view('profile', compact('message'));
                         }
                     }
                     else{
                         $message = "Invalid email format";
-                        view('register', compact('message'));
+                        view('profile', compact('message'));
                     }
                 }
                 else {
                     $message = "Invalid name format";
-                    view('register', compact('message'));
+                    view('profile', compact('message'));
                 }
             }
             else{
                 $message = "Username already exists";
-                view('register', compact('message'));
+                view('profile', compact('message'));
             }
         }
         else{
             $message = "Invalid Username";
-            view('register', compact('message'));
+            view('profile', compact('message'));
         }
     }
 

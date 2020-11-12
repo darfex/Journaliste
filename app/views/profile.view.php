@@ -2,7 +2,9 @@
 session_start();
 require 'partials/adminheader.php'; 
 ?>
-
+        <?php if (isset($message)) : ?>
+            <small style="color:red"><?= $message; ?></small>
+        <?php endif; ?>
 <div class="container-fluid">
     <h2>Update your profile</h2>
     <hr>
