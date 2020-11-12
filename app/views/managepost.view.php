@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="../public/css/adminpost.css">
 
 <?php if(isset($message)) : ?>
-    <?= "<script>alert('$message');</script>"; ?>
+    <?= $message; ?>
 <?php endif; ?>
 
 <div class="container-fluid">

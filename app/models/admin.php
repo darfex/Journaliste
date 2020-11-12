@@ -5,8 +5,6 @@ use Core\App;
 use \PDO;
 use \Exception;
 
-session_start();
-
 class Fetch
 {
     protected $pdo;

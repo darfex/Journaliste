@@ -1,6 +1,19 @@
 <?php 
-session_start();
-require 'partials/adminheader.php'; 
+
+require 'partials/adminheader.php';
+
+if (isset($message)){
+    echo $message;
+}
+
+$published = 0;
+$draft = 0;
+
+foreach ($data as $post)
+{   
+    $post->stat === 'published' ? $published += 1 : $draft += 1;
+}
+
 ?>
 
 <div class="container-fluid">
@@ -21,14 +34,14 @@ require 'partials/adminheader.php';
         
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-2">
             <i class="fas fa-check fa-5x"></i>
-            <p class="text stat">3</p>
+            <p class="text stat"><?= $published; ?></p>
             <br>
             <strong class="text name">Published</strong>
         </div>
 
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-3">
             <i class="fas fa-tasks fa-5x"></i>
-            <p class="text stat">0</p>
+            <p class="text stat"><?= $draft; ?></p>
             <br>
             <strong class="text name">Drafts</strong>
         </div>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
+session_start();
 class BlogController
 {
     public function addPost()

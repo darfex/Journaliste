@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Controllers;
+session_start();
 
 class PagesController
 {
@@ -23,7 +23,8 @@ class PagesController
     {
         require 'app/models/admin.php';
         $data = $post->fetchAllPosts();
-        view('managepost', compact('data'));
+        $message = "<script>alert('Post status has been changed successfully');</script>";
+        view('managepost', compact('data', 'message'));
     }
 
     public function viewPost()
@@ -36,7 +37,9 @@ class PagesController
 
     public function dashboard()
     {
-        view('dashboard');
+        require 'app/models/admin.php';
+        $data = $post->fetchAllPosts();
+        view('dashboard', compact('data'));
     }
 
     public function profile()

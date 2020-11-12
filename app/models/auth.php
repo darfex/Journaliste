@@ -4,8 +4,6 @@ namespace App\Models;
 use Core\App;
 use \PDO;
 use \Exception;
-
-session_start();
 class User
 {
     protected $pdo;
@@ -38,14 +36,12 @@ class User
 
                 redirect('dashboard');
             }
-            $error = "<script>alert('Incorrect Password');</script>";
             $message = "Incorrect Password";
             view('login', compact('message', 'error'));
         }
         else{
-            $error = "<script>alert('No account');</script>";
             $message = 'No Account';
-            view('login', compact('message', 'error'));
+            view('login', compact('message'));
         }
     }
 
@@ -111,13 +107,13 @@ class User
 
         if ($this->isUsernameValid($username))
         {
-            if (!$this->isUsernameExists($username))
+            if (!$this->isUsernameExists($username) || ($this->isUsernameExists($username) && $username === $details['username']))
             {
                 if ($this->isnameValid($firstname) && $this->isnameValid($lastname))
                 {
                     if ($this->isEmailValid($email))
                     {
-                        if (!$this->isEmailExists($email))
+                        if (!$this->isEmailExists($email) || ($this->isEmailExists($email) && $email === $details['email']))
                         {
                             if (password_verify($currentPassword, $details['pass']))
                             {
@@ -140,8 +136,8 @@ class User
                                         $statement->bindParam(':pass', $password);
                                         $statement->execute();
 
-                                        echo "<script>alert('Account has been updated successfully');</script>";
-                                        redirect('dasboard');
+                                        $message = "<script>alert('Account Updated Successfully');</script>";
+                                        view('dashboard', compact('message'));
                                     }
                                     catch(Exception $e)
                                     {
@@ -149,37 +145,37 @@ class User
                                     }
                                 }
                                 else{
-                                    $message = "Passwords must match and should not be less than six(6) characters";
+                                    $message = "<script>alert('Passwords must match and should not be less than six(6) characters');</script>";
                                     view('profile', compact('message'));
                                 }
                             }
                             else{
-                                $message = "Incorrect Password";
+                                $message = "<script>alert('Incorrect Password');</script>";
                                 view('profile', compact('message'));
                             }
                         }
                         else{
-                            $message = "Email already exists";
+                            $message = "<script>alert('Email already exists');</script>";
                             view('profile', compact('message'));
                         }
                     }
                     else{
-                        $message = "Invalid email format";
+                        $message = "<script>alert('Invalid email format');</script>";
                         view('profile', compact('message'));
                     }
                 }
                 else {
-                    $message = "Invalid name format";
+                    $message = "<script>alert('Invalid name format');</script>";
                     view('profile', compact('message'));
                 }
             }
             else{
-                $message = "Username already exists";
+                $message = "<script>alert('Username already exists');</script>";
                 view('profile', compact('message'));
             }
         }
         else{
-            $message = "Invalid Username";
+            $message = "<script>alert('Invalid Username');</script>";
             view('profile', compact('message'));
         }
     }

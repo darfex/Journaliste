@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use Core\App;
+session_start();
 
 class UsersController
 {
