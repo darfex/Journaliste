@@ -22,11 +22,11 @@
             </select>
             <!-- <br> -->
             
-            <label for="pass">Password</label>
-            <input type="password" class="form-control" name="pass" required>
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" required>
 
-            <label for="cpass">Confirm Password</label>
-            <input type="password" class="form-control" name="cpass" required>
+            <label for="cpassword">Confirm Password</label>
+            <input type="password" class="form-control" name="cpassword" required>
 
             <button class="btn btn-success">Add User</button>
         </form>

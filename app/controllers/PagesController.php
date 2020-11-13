@@ -23,8 +23,7 @@ class PagesController
     {
         require 'app/models/admin.php';
         $data = $post->fetchAllPosts();
-        $message = "<script>alert('Post status has been changed successfully');</script>";
-        view('managepost', compact('data', 'message'));
+        view('managepost', compact('data'));
     }
 
     public function viewPost()

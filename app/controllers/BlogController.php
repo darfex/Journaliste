@@ -48,6 +48,5 @@ class BlogController
         $image   = $_POST['image'];
         $id = $_GET['id'];
         $postAction->updatePost($title, $content, $image, $tag, $status, $id);
-        // redirect('posts');
     }
 }

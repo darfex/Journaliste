@@ -45,7 +45,7 @@ class User
         }
     }
 
-    public function AddAccount($username, $firstname, $lastname, $email, $password, $cpassword)
+    public function AddAccount($username, $firstname, $lastname, $email, $password, $cpassword, $role)
     {
         if ($this->isUsernameValid($username))
         {
@@ -59,16 +59,28 @@ class User
                         {
                             if ($this->isPasswordValid($password, $cpassword))
                             {
-                                $param = [
-                                    'username' => $this->sanitize_string($username),
-                                    'firstname' => $this->sanitize_string($firstname),
-                                    'lastname'  => $this->sanitize_string($lastname),
-                                    'email'     => filter_var($email, FILTER_SANITIZE_EMAIL),
-                                    'pass'  => password_hash($password, PASSWORD_DEFAULT)
-                                ];
-
-                                App::get('query')->insert('users', $param);
-                                redirect('login');
+                                if(empty($role))
+                                {
+                                    App::get('query')->insert('users', [
+                                        'username'  => $this->sanitize_string($username),
+                                        'firstname' => $this->sanitize_string($firstname),
+                                        'lastname'  => $this->sanitize_string($lastname),
+                                        'email'     => filter_var($email, FILTER_SANITIZE_EMAIL),
+                                        'pass'      => password_hash($password, PASSWORD_DEFAULT)
+                                    ]);
+                                }
+                                else
+                                {
+                                    App::get('query')->insert('users', [
+                                        'username'  => $this->sanitize_string($username),
+                                        'firstname' => $this->sanitize_string($firstname),
+                                        'lastname'  => $this->sanitize_string($lastname),
+                                        'email'     => filter_var($email, FILTER_SANITIZE_EMAIL),
+                                        'pass'      => password_hash($password, PASSWORD_DEFAULT),
+                                        'role'      => $role
+                                    ]);
+                                }
+                                    isset($_SESSION['role']) && $_SESSION['role'] === 'admin' ? redirect('dashboard') : redirect('login');
                             }
                             else{
                                 $message = "Passwords must match and should not be less than six(6) characters";

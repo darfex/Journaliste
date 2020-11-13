@@ -26,8 +26,10 @@ class UsersController
         $email = $_POST['email'];
         $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
+        
+        isset($_POST['role']) ? $role = $_POST['role'] : $role = "";
 
-        $auth->AddAccount($username, $firstname, $lastname, $email, $password, $cpassword);
+        $auth->AddAccount($username, $firstname, $lastname, $email, $password, $cpassword, $role);
     }
 
     public function update_User()

@@ -1,4 +1,5 @@
 <?php
+
 $router->get("", 'PagesController@home');
 $router->get('post', 'PagesController@post');
 $router->get("dashboard", 'PagesController@dashboard');
@@ -13,6 +14,7 @@ $router->get('status', 'BlogController@changePostStatus');
 $router->get('delete', 'BlogController@deletePost');
 $router->get('edit', 'BlogController@editPost');
 $router->get('logout', 'UsersController@logout');
+$router->post('addUser', 'UsersController@add_User');
 $router->post('update-post', 'BlogController@updatePost');
 $router->post('auth', 'UsersController@login');
 $router->post('add-user', 'UsersController@add_User');

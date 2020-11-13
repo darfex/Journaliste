@@ -23,10 +23,10 @@
         <input type="password" class="form-control" name="currentPassword" placeholder="Enter Current Password" required>
 
         <label for="password">New Password</label>
-        <input type="password" class="form-control" name="password" placeholder="Enter New Password" required>
+        <input type="password" class="form-control" name="password" placeholder="Enter New Password">
 
         <label for="cpassword">Confirm Password</label>
-        <input type="password" class="form-control" name="cpassword" placeholder="Enter New Password" required>
+        <input type="password" class="form-control" name="cpassword" placeholder="Enter New Password">
 
         <button class="btn btn-success">Update</button>
     </form>

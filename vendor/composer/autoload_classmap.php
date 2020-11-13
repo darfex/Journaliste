@@ -16,7 +16,7 @@ return array(
     'Composer\\Autoload\\ComposerStaticInit8ebc55b994e49c065638b7a35f83c611' => $vendorDir . '/composer/autoload_static.php',
     'Connection' => $baseDir . '/core/database/connection.php',
     'Core\\App' => $baseDir . '/core/App.php',
-    'Core\\Models\\Fetch' => $baseDir . '/app/models/adminPost.php',
+    'Core\\Models\\Fetch' => $baseDir . '/app/models/admin.php',
     'Core\\Request' => $baseDir . '/core/Request.php',
     'Core\\Router' => $baseDir . '/core/Router.php',
     'QueryBuilder' => $baseDir . '/core/database/queryBuilder.php',
