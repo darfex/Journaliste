@@ -47,6 +47,23 @@ class UsersController
         $auth->UpdateUser($username, $firstname, $lastname, $email, $currentPassword, $password, $cpassword);
     }
 
+    public function deleteUser()
+    {
+        require 'app/models/admin.php';
+        $id = $_GET['id'];
+        $action->delete('users', $id);
+        redirect('users');
+    }
+
+    public function changeUserRole()
+    {
+        require 'app/models/admin.php';
+        $id = $_GET['id'];
+        $role = $_GET['role'];
+        $action->updateUserRole($role, $id);
+        redirect('users');
+    }
+
     public function logout()
     {
         session_start();

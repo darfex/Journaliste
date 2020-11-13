@@ -18,13 +18,13 @@ foreach ($posts as $post)
 
 foreach ($users as $user)
 {
-    $user->role === 'admin' ? $admin += 1 : $non_admin += 1;
+    $user->user_role === 'admin' || $user->user_role === 'superadmin' ? $admin += 1 : $non_admin += 1;
 }
 
 ?>
 
 <div class="container-fluid">
-    <h1 class="page-header">Hello <?= ucfirst($_SESSION['username']); ?></h1>
+    <h2 class="page-header">Hello <?= ucfirst($_SESSION['username']); ?></h2>
 
     <div class="alert alert-success">
         <b><i class="fas fa-bullhorn"></i>&nbsp&nbspWelcome to your Admin Dashboard!</b>   

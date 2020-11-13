@@ -32,7 +32,7 @@ class User
                 $_SESSION['firstname'] = $details['firstname'];
                 $_SESSION['lastname']  = $details['lastname'];
                 $_SESSION['email']     = $details['email'];
-                $_SESSION['role']      = $details['role'];
+                $_SESSION['role']      = $details['user_role'];
 
                 redirect('dashboard');
             }
@@ -77,7 +77,7 @@ class User
                                         'lastname'  => $this->sanitize_string($lastname),
                                         'email'     => filter_var($email, FILTER_SANITIZE_EMAIL),
                                         'pass'      => password_hash($password, PASSWORD_DEFAULT),
-                                        'role'      => $role
+                                        'user_role'      => $role
                                     ]);
                                 }
                                     isset($_SESSION['role']) && $_SESSION['role'] === 'admin' ? redirect('dashboard') : redirect('login');

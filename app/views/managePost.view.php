@@ -8,8 +8,8 @@
 <div class="container-fluid">
     <button class="btn btn-primary" onclick="window.location.href='addPost'">Add New</button>
         <div>
-            <table>
-                <thead>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
                     <tr>
                         <th></th>
                         <th>Author</th>
@@ -43,13 +43,13 @@
                             </td>
                             <td>
                                 <?php if($post->stat === 'draft') : ?>
-                                    <a href="status?status=published&id=<?= $post->id; ?>">Publish</a>
+                                    <a href="PostStatus?status=published&id=<?= $post->id; ?>">Publish</a>
                                 <?php elseif ($post->stat === 'published') : ?>
-                                    <a href="status?status=draft&id=<?= $post->id; ?>">Draft</a>
+                                    <a href="PostStatus?status=draft&id=<?= $post->id; ?>">Draft</a>
                                 <?php endif; ?>
                             </td>
                             <td class="delete">
-                                <button class="btns" onclick="window.location.href='delete?id=<?= $post->id; ?>'"><i class="fas fa-trash fa-lg"></i></button>
+                                <button class="btns" onclick="window.location.href='deletePost?id=<?= $post->id; ?>'"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

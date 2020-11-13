@@ -20,13 +20,17 @@ class BlogController
     public function changePostStatus()
     {
         require 'app/models/admin.php';
+        $id = $_GET['id'];
+        $status = $_GET['status'];
+        $action->updatePostStatus($status, $id);
+        redirect('posts');
     }
 
     public function deletePost()
     {
         require 'app/models/admin.php';
         $id = $_GET['id'];
-        $post->delete('posts', $id);
+        $action->delete('posts', $id);
         redirect('posts');
     }
 

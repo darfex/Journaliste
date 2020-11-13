@@ -22,14 +22,14 @@ class PagesController
     public function managePosts()
     {
         require 'app/models/admin.php';
-        $data = $post->fetchAllPosts();
+        $data = $action->fetchAllPosts();
         view('managePost', compact('data'));
     }
 
     public function manageUsers()
     {
         require 'app/models/admin.php';
-        $data = $post->fetchAllUsers();
+        $data = $action->fetchAllUsers();
         view('manageUsers', compact('data'));
     }
 
@@ -44,8 +44,8 @@ class PagesController
     public function dashboard()
     {
         require 'app/models/admin.php';
-        $posts = $post->fetchAllPosts();
-        $users = $post->fetchAllUsers();
+        $posts = $action->fetchAllPosts();
+        $users = $action->fetchAllUsers();
         view('dashboard', compact('posts', 'users'));
     }
 

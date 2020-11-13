@@ -1,21 +1,19 @@
 table {
-    width: 100%;
-    border-collapse: collapse;
     font-family: Lato;
     margin-top: 20px;
+    overflow-y: hidden;
 }
 
 th {
-    background: #343a40;
     text-align: center;
-    padding: 15px;
-    color: #fff;
 }
 
 td {
     font-size: 14px;
-    border: 1px solid #343a40;
-    padding: 10px;
+}
+
+.header {
+    text-align: left;
 }
 
 .btns {
@@ -33,16 +31,16 @@ img {
     text-align: center;
 }
 
-.fa-trash {
-    color: red;
-}
-
-.fa-trash:hover {
-    color: rgb(170, 5, 38);
+.fa-trash:hover, .fa-times:hover {
+    color: rgb(179, 10, 10);
 }
 
 .fa-edit {
     color: #265a88;
+}
+
+.fa-edit:hover {
+    color: rgb(1, 132, 255);
 }
 
 .date {
