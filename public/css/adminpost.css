@@ -1,26 +1,21 @@
-.btn {
-    margin-bottom: 15px;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
     font-family: Lato;
+    margin-top: 20px;
 }
-
-td {
-    font-size: 14px;
-    border: 1px solid #343a40;
-    padding: 10px;
-}
-
-
 
 th {
     background: #343a40;
     text-align: center;
     padding: 15px;
     color: #fff;
+}
+
+td {
+    font-size: 14px;
+    border: 1px solid #343a40;
+    padding: 10px;
 }
 
 .btns {

@@ -8,10 +8,17 @@ if (isset($message)){
 
 $published = 0;
 $draft = 0;
+$admin = 0;
+$non_admin = 0;
 
-foreach ($data as $post)
+foreach ($posts as $post)
 {   
     $post->stat === 'published' ? $published += 1 : $draft += 1;
+}
+
+foreach ($users as $user)
+{
+    $user->role === 'admin' ? $admin += 1 : $non_admin += 1;
 }
 
 ?>
@@ -27,7 +34,7 @@ foreach ($data as $post)
     <div class="row">
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-1">
             <i class="fas fa-file fa-5x"></i>
-            <p class="text stat">3</p>
+            <p class="text stat"><?= $published + $draft; ?></p>
             <br>
             <strong class="text name">Posts</strong>
         </div>
@@ -48,21 +55,21 @@ foreach ($data as $post)
 
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-4">
             <i class="fas fa-users fa-5x"></i>
-            <p class="text stat">1</p>
+            <p class="text stat"><?= $admin + $non_admin; ?></p>
             <br>
-            <strong class="text name">Users</strong>
+            <strong class="text name">All Users</strong>
         </div>
 
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-5">
             <i class="fa fa-user-lock fa-5x"></i>
-            <p class="text stat">1</p>
+            <p class="text stat"><?= $admin; ?></p>
             <br>
             <strong class="text name">Admin</strong>
         </div>
 
         <div class="col-lg-3 col-md-5 col-sm-5 panel panel-6">
             <i class="fas fa-user fa-5x"></i>
-            <p class="text stat">0</p>
+            <p class="text stat"><?= $non_admin; ?></p>
             <br>
             <strong class="text name">User</strong>
         </div>

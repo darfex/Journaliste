@@ -28,6 +28,20 @@ class Fetch
         }
     }
 
+    public function fetchAllUsers()
+    {
+        try
+        {
+            $statement = $this->pdo->prepare("SELECT * FROM users");
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_OBJ);
+        }
+        catch(Exception $e)
+        {
+            die($e->getMessage());
+        }
+    }
+
     public function changeStatus($status, $id)
     {
         $statement = $this->pdo->prepare("UPDATE posts SET stat = :stat WHERE id = :id");

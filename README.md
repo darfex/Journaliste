@@ -3,7 +3,8 @@
 ## Features
 - Multiple user access
 - Admin dashboard
+- Admin functions
 
 ## To-do
 - Add pagination
-- Search keyword feature
+- Search by keyword
