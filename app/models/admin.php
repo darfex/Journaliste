@@ -18,7 +18,7 @@ class Fetch
     {
         try
         {
-            $statement = $this->pdo->prepare("SELECT * FROM posts");
+            $statement = $this->pdo->prepare("SELECT * FROM posts ORDER BY author");
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_OBJ);
         }

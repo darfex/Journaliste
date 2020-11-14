@@ -22,13 +22,24 @@ class PagesController
     public function managePosts()
     {
         require 'app/models/admin.php';
-        $data = $action->fetchAllPosts();
+        require 'app/models/post.php';
+        $author = $_SESSION['role'];
+        $_SESSION['role'] === 'user'? $data =$postAction->fetchUserPost($author) : $data = $action->fetchAllPosts();
+        if(empty($data))
+        {
+            echo "<script>alert('NO POST AVAILABLE');
+            window.location.href='addPost';</script>";
+        }
         view('managePost', compact('data'));
     }
 
     public function manageUsers()
     {
         require 'app/models/admin.php';
+        if ($_SESSION['role'] === 'user'){
+            echo "<script>alert('ONLY ADMIN CAN VIEW USERS');
+            window.location.href='dashboard';</script>";
+        }
         $data = $action->fetchAllUsers();
         view('manageUsers', compact('data'));
     }
@@ -56,6 +67,10 @@ class PagesController
 
     public function addUser()
     {
+        if ($_SESSION['role'] === 'user'){
+            echo "<script>alert('ONLY ADMIN CAN ADD USERS');
+            window.location.href='dashboard';</script>";
+        }
         view('new-user');
     }
 

@@ -46,3 +46,12 @@ img {
 .date {
     width: 10%;
 }
+
+h1, h4 {
+    text-align: center;
+    font-weight: 600;
+}
+
+h1 {
+    color: red;
+}

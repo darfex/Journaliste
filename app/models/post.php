@@ -104,6 +104,21 @@ class Post
         }
     }
 
+    public function fetchUserPost($author)
+    {
+        try
+        {
+            $statement = $this->pdo->prepare("SELECT * FROM posts WHERE author = :author");
+            $statement->bindParam(':author', $author);
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_OBJ);
+        }
+        catch(Exception $e)
+        {
+            die($e->getMessage());
+        }
+    }
+
     public function num_words($content) // Number of words should be >= 200
     {
         $content = explode(' ', $content);
