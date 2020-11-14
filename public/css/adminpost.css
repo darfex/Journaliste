@@ -36,11 +36,11 @@ img {
 }
 
 .fa-edit {
-    color: #265a88;
+    color: rgb(1, 132, 255);
 }
 
 .fa-edit:hover {
-    color: rgb(1, 132, 255);
+    color: #054fa3;
 }
 
 .date {
@@ -54,4 +54,18 @@ h1, h4 {
 
 h1 {
     color: red;
+}
+
+.status {
+    border: none;
+    background: #fff;
+    color: rgb(1, 132, 255);
+}
+
+.status:hover {
+    color: #02336b;
+}
+
+.role {
+    text-align: center;
 }

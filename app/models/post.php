@@ -108,7 +108,7 @@ class Post
     {
         try
         {
-            $statement = $this->pdo->prepare("SELECT * FROM posts WHERE author = :author");
+            $statement = $this->pdo->prepare("SELECT * FROM posts WHERE author = :author ORDER BY title");
             $statement->bindParam(':author', $author);
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_OBJ);

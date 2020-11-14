@@ -14,16 +14,18 @@
                         <a href="addPost">Add New Post</a>
                     </li>
                 </ul>
-            <a href="#" class="list-group-item list-group-item-action bg-dark dropdown-toggle" data-toggle="collapse" data-target="#users"><i class="fas fa-users"></i> Users</a>
-                <ul id="users" class="collapse">
-                    <li class="nav-item">
-                        <a href="users">View Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="addUser">Add New User</a>
-                    </li>
-                </ul>
-            <a href="profile" class="list-group-item list-group-item-action bg-dark"><i class="fas fa-user"></i>&nbsp User Account</a>
+            <?php if($_SESSION['role'] !== 'user') : ?>
+                <a href="#" class="list-group-item list-group-item-action bg-dark dropdown-toggle" data-toggle="collapse" data-target="#users"><i class="fas fa-users"></i> Users</a>
+                    <ul id="users" class="collapse">
+                        <li class="nav-item">
+                            <a href="users">View Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="addUser">Add New User</a>
+                        </li>
+                    </ul>
+            <?php endif; ?>
+                <a href="profile" class="list-group-item list-group-item-action bg-dark"><i class="fas fa-user"></i>&nbsp User Account</a>
         </div>
     </div>
 <div id="page-content-wrapper">

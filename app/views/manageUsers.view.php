@@ -25,11 +25,11 @@
                             <td><?= ucfirst($user->lastname); ?></td>
                             <td><?= $user->email; ?></td>
                             <td><?= ucfirst($user->user_role); ?></td>
-                            <td>
+                            <td class="role">
                                 <?php if ($user->user_role !== 'superadmin' && $user->user_role !== 'admin') : ?>
-                                    <a href="UserRole?role=admin&id=<?= $user->id; ?>">Make Admin</a>
+                                    <button class="status" onclick="window.location.href='UserRole?role=admin&id=<?= $user->id; ?>'">Make Admin</button>
                                 <?php elseif($user->user_role === 'admin') : ?>
-                                    <a href="UserRole?role=user&id=<?= $user->id; ?>">Remove Admin</a>
+                                    <button class="status" onclick="window.location.href='UserRole?role=user&id=<?= $user->id; ?>'">Remove Admin</button>
                                 <?php endif; ?>
                             </td>
                             <td class="delete">
@@ -66,7 +66,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    <!-- <?php endif; ?> -->
+    <?php endif; ?>
 
 </div>
 

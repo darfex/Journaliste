@@ -36,16 +36,16 @@
                                 <td class="img"><img src="../public/images/<?= $post->img; ?>" alt="Image"></td>
                                 <td class="date"><?= $post->postDate; ?></td>
                                 <td>
-                                    <button class="btn btn-primary" onclick="window.location.href='view?post=<?= $post->title; ?>'">View</button>
+                                    <button class="status" onclick="window.location.href='view?post=<?= $post->title; ?>'">View</button>
                                 </td>
                                 <td>
                                     <button class="btns" onclick="window.location.href='edit?post=<?= $post->title; ?>'"><i class="fas fa-edit"></i></button>
                                 </td>
                                 <td>
                                     <?php if($post->stat === 'draft') : ?>
-                                        <button class="btn btn-primary" onclick="window.location.href='PostStatus?status=published&id=<?= $post->id; ?>'">Publish</button>
+                                        <button class="status" onclick="window.location.href='PostStatus?status=published&id=<?= $post->id; ?>'">Publish</button>
                                     <?php elseif ($post->stat === 'published') : ?>
-                                        <button class="btn btn-primary" onclick="window.location.href='PostStatus?status=draft&id=<?= $post->id; ?>'">Draft</button>
+                                        <button class="status" onclick="window.location.href='PostStatus?status=draft&id=<?= $post->id; ?>'">Draft</button>
                                     <?php endif; ?>
                                 </td>
                                 <td class="delete">

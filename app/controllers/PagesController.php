@@ -36,10 +36,6 @@ class PagesController
     public function manageUsers()
     {
         require 'app/models/admin.php';
-        if ($_SESSION['role'] === 'user'){
-            echo "<script>alert('ONLY ADMIN CAN VIEW USERS');
-            window.location.href='dashboard';</script>";
-        }
         $data = $action->fetchAllUsers();
         view('manageUsers', compact('data'));
     }
@@ -67,10 +63,6 @@ class PagesController
 
     public function addUser()
     {
-        if ($_SESSION['role'] === 'user'){
-            echo "<script>alert('ONLY ADMIN CAN ADD USERS');
-            window.location.href='dashboard';</script>";
-        }
         view('new-user');
     }
 
