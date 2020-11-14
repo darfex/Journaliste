@@ -14,6 +14,12 @@
                     <li class="nav-item">
                         <a class="nav-link" id="nav-link" href="register">Register</a>
                     </li>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
                 </ul>
             </div>
         </div>
