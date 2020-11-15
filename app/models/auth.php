@@ -80,7 +80,6 @@ class User
                                         'user_role'      => $role
                                     ]);
                                 }
-                                    isset($_SESSION['role']) && $_SESSION['role'] === 'admin' ? redirect('dashboard') : redirect('login');
                             }
                             else{
                                 $message = "Passwords must match and should not be less than six(6) characters";
@@ -113,7 +112,7 @@ class User
         }
     }
 
-    public function UpdateUser($username, $firstname, $lastname, $email, $currentPassword, $password, $cpassword)
+    public function UpdateUser($username, $firstname, $lastname, $email, $currentPassword, $password, $cpassword, $id)
     {
         $details = $this->fetchData($_SESSION['username']);
 
@@ -139,17 +138,16 @@ class User
 
                                     try{
                                         $statement = $this->pdo->prepare(
-                                            "UPDATE users SET username = :username, firstname = :firstname, lastname = :lastname, email = :email, pass = :pass"
+                                            "UPDATE users SET username = :username, firstname = :firstname, lastname = :lastname, email = :email, pass = :pass WHERE id = :id"
                                         );
                                         $statement->bindParam(':username', $username);
                                         $statement->bindParam(':firstname', $firstname);
                                         $statement->bindParam(':lastname', $lastname);
                                         $statement->bindParam(':email', $email);
                                         $statement->bindParam(':pass', $password);
+                                        $statement->bindParam(':id', $id);
                                         $statement->execute();
-
-                                        $message = "<script>alert('Account Updated Successfully');</script>";
-                                        view('dashboard', compact('message'));
+                                        
                                     }
                                     catch(Exception $e)
                                     {

@@ -1,5 +1,5 @@
 <?php  require 'partials/header.php'; ?>
-<link rel="stylesheet" href="../public/css/login.css">
+<link rel="stylesheet" href="../public/css/auth.css">
 
     <div class="content">
         <?php if (isset($message)) : ?>
@@ -24,7 +24,7 @@
             <label for="cpassword">Confirm Password</label>
             <input type="password" class="form-control" name="cpassword" required>
 
-            <button class="btn">Register</button>
+            <button class="btn submit">Register</button>
         </form>
     </div>
     

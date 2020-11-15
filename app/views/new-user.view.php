@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <h2>Add new User</h2>
 
-        <form action="" method="POST">
+        <form action="addUser" method="POST">
             <label for="username">Username</label>
             <input type="text" class="form-control" name="username" required>
             
@@ -20,7 +20,6 @@
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
             </select>
-            <!-- <br> -->
             
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" required>

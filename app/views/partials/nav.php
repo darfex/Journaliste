@@ -14,9 +14,9 @@
                     <li class="nav-item">
                         <a class="nav-link" id="nav-link" href="register">Register</a>
                     </li>
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                    <form class="form-inline" action="search" method="POST">
+                        <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                             <i class="fas fa-search"></i>
                         </button>
                     </form>

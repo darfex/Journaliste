@@ -20,7 +20,7 @@
                             <th>Date</th>
                             <th>View</th>
                             <th></th>
-                            <th>Change Status</th>
+                            <th>Change</th>
                             <th></th>
                         </tr>
                     </thead>

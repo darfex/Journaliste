@@ -119,6 +119,13 @@ class Post
         }
     }
 
+    public function search($search)
+    {
+        $statement = $this->pdo->prepare("SELECT * FROM posts WHERE tag LIKE '%$search%' ");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function num_words($content) // Number of words should be >= 200
     {
         $content = explode(' ', $content);

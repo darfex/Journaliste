@@ -10,21 +10,21 @@
 
 input {
     width: 100%;
-    margin-bottom: 10px;
 }
 
 label {
     color: #222222;
+    margin-top: 10px;
 }
 
-.btn {
+.submit {
     width: 100%;
     background: #343a40;
     color: #fff;
     margin-top: 10px;
 }
 
-.btn:hover {
+.submit:hover {
     background: #212529;
     color: #fff;
 }

@@ -23,3 +23,4 @@ $router->post('auth', 'UsersController@login');
 $router->post('add-user', 'UsersController@add_User');
 $router->post('add-post', 'BlogController@addPost');
 $router->post('update-profile', 'UsersController@update_User');
+$router->post('search', 'BlogController@search');

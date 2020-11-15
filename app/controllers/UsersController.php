@@ -30,6 +30,15 @@ class UsersController
         isset($_POST['role']) ? $role = $_POST['role'] : $role = "";
 
         $auth->AddAccount($username, $firstname, $lastname, $email, $password, $cpassword, $role);
+
+        if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'superadmin'))
+        {
+            echo "<script>alert('USER HAS BEEN ADDED SUCCESSFULLY');
+            window.location.href='dashboard';</script>";
+        }
+        else{
+            redirect('login');
+        }
     }
 
     public function update_User()
@@ -43,8 +52,12 @@ class UsersController
         $currentPassword = $_POST['currentPassword'];
         $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
+        $id = $_SESSION['id'];
 
-        $auth->UpdateUser($username, $firstname, $lastname, $email, $currentPassword, $password, $cpassword);
+        $auth->UpdateUser($username, $firstname, $lastname, $email, $currentPassword, $password, $cpassword, $id);
+
+        echo "<script>alert('Account Updated Successfully');
+        window.location.href='login'</script>";
     }
 
     public function deleteUser()

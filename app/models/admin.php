@@ -32,7 +32,7 @@ class Fetch
     {
         try
         {
-            $statement = $this->pdo->prepare("SELECT * FROM users");
+            $statement = $this->pdo->prepare("SELECT * FROM users ORDER BY user_role");
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_OBJ);
         }

@@ -7,4 +7,3 @@
 
 ## To-do
 - Add pagination
-- Search by keyword

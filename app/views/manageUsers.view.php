@@ -13,7 +13,7 @@
                     <th class="header">Email</th>
                     <th class="header">Role</th>
                     <th class="header">Change Role</th>
-                    <th class="header">Delete User</th>
+                    <th class="header">Delete</th>
                 </thead>
                 <tbody>
                     <?php $num = 0; ?>

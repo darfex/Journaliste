@@ -53,4 +53,13 @@ class BlogController
         $id = $_GET['id'];
         $postAction->updatePost($title, $content, $image, $tag, $status, $id);
     }
+
+    public function search()
+    {
+        require 'app/models/post.php';
+        $search = $_POST['search'];
+
+        $data = $postAction->search($search);
+        VIEW('search', compact('data'));
+    }
 }

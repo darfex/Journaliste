@@ -20,7 +20,7 @@
         <input type="text" class="form-control" name="email" value="<?= $_SESSION['email']; ?>" required>
         
         <label for="currentPassword">Current Password</label> <small>(Changing password is optional)</small>
-        <input type="password" class="form-control" name="currentPassword" placeholder="Enter Current Password" required>
+        <input type="password" class="form-control" name="currentPassword" placeholder="Enter Current Password">
 
         <label for="password">New Password</label>
         <input type="password" class="form-control" name="password" placeholder="Enter New Password">

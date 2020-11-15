@@ -23,7 +23,7 @@ class PagesController
     {
         require 'app/models/admin.php';
         require 'app/models/post.php';
-        $author = $_SESSION['role'];
+        $author = $_SESSION['username'];
         $_SESSION['role'] === 'user'? $data =$postAction->fetchUserPost($author) : $data = $action->fetchAllPosts();
         if(empty($data))
         {
