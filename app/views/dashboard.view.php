@@ -16,11 +16,6 @@ foreach ($posts as $post)
     $post->stat === 'published' ? $published += 1 : $draft += 1;
 }
 
-foreach ($users as $user)
-{
-    $user->user_role === 'admin' || $user->user_role === 'superadmin' ? $admin += 1 : $non_admin += 1;
-}
-
 ?>
 
 <div class="container-fluid">
@@ -55,6 +50,12 @@ foreach ($users as $user)
             </div>
         </div>
     <?php else : ?>
+    <?php 
+    foreach ($users as $user)
+    {
+        $user->user_role === 'admin' || $user->user_role === 'superadmin' ? $admin += 1 : $non_admin += 1;
+    }
+    ?>
         <div class="row">
             <div class="col-lg-3 col-md-5 col-sm-5 panel panel-1">
                 <i class="fas fa-file fa-5x"></i>

@@ -51,9 +51,18 @@ class PagesController
     public function dashboard()
     {
         require 'app/models/admin.php';
-        $posts = $action->fetchAllPosts();
-        $users = $action->fetchAllUsers();
-        view('dashboard', compact('posts', 'users'));
+        require 'app/models/post.php';
+        if ($_SESSION['role'] === 'user') 
+        {
+            $author = $_SESSION['username'];
+            $posts = $postAction->fetchUserPost($author);
+            view('dashboard', compact('posts'));
+        }else
+        {
+            $posts = $action->fetchAllPosts();
+            $users = $action->fetchAllUsers();
+            view('dashboard', compact('posts', 'users'));
+        }
     }
 
     public function profile()
