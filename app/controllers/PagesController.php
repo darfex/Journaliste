@@ -27,7 +27,7 @@ class PagesController
         $_SESSION['role'] === 'user'? $data =$postAction->fetchUserPost($author) : $data = $action->fetchAllPosts();
         if(empty($data))
         {
-            echo "<script>alert('NO POST AVAILABLE');
+            echo "<script>alert('You have not posted anything yet!);
             window.location.href='addPost';</script>";
         }
         view('managePost', compact('data'));
