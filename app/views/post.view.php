@@ -9,7 +9,7 @@
                     <small class="date">Published <?= $post->postDate; ?></small>
                     <br>
                         <div class="row">
-                            <img src="../public/images/<?= $post->img; ?>" alt="Image" class="col-lg-5">
+                            <img src="../public/images/<?= $post->img; ?>" alt="Image" class="col-lg-5" id="post-image">
                             <div class="col-lg-6" id="content"><?= $post->content; ?></div>
                         </div>
                 </div>
